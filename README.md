@@ -5,3 +5,9 @@
 
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
+
+## 구현 기능 목록
+* 차량 목록을 쉼표 기준으로 입력
+* 시도할 횟수를 입력
+* 랜덤 값을 입력으로 차량 전진여부 결정
+* 최종 우승자 결정
