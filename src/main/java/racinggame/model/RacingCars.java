@@ -38,4 +38,24 @@ public class RacingCars implements Model{
     public List<Car> getCars() {
         return this.cars;
     }
+
+    public List<Car> getWinner() {
+        List<Car> winners = new ArrayList<>();
+        getMaxPositionCars(winners);
+        return winners;
+    }
+
+    private void getMaxPositionCars(List<Car> winners) {
+        int maxPosition = 0;
+        for(Car car : cars) {
+            if(car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                winners.clear();
+                winners.add(car);
+                continue;
+            }
+            if(car.getPosition() == maxPosition)
+                winners.add(car);
+        }
+    }
 }
