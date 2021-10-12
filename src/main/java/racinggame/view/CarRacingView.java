@@ -16,12 +16,16 @@ public class CarRacingView implements View {
     public void output() {
         List<Car> cars = racingCars.getCars();
         for(Car car : cars) {
-            String carOutput = car.getCarName() + " : ";
-            for(int i=0; i<car.getPosition(); i++) {
-                carOutput += "-";
-            }
-            System.out.println(carOutput);
+            printCar(car);
         }
         System.out.println();
+    }
+
+    private void printCar(Car car) {
+        String carOutput = car.getCarName() + " : ";
+        for(int i=0; i< car.getPosition(); i++) {
+            carOutput += "-";
+        }
+        System.out.println(carOutput);
     }
 }
