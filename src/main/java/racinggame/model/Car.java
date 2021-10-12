@@ -6,6 +6,7 @@ public class Car implements Model{
 
     private String carName;
     private int position = 0;
+    public static final int BASE_VALUE = 4;
 
     public Car(String carName){
         this.carName = carName;
@@ -20,7 +21,7 @@ public class Car implements Model{
     }
 
     public void drive(){
-        if(Randoms.pickNumberInRange(0, 9) >= 4)
+        if(Randoms.pickNumberInRange(0, 9) >= BASE_VALUE)
             position++;
     }
 }
