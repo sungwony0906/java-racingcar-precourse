@@ -3,7 +3,7 @@ package racinggame.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCars {
+public class RacingCars implements Model{
 
     List<Car> cars = new ArrayList<>();
 
@@ -28,5 +28,14 @@ public class RacingCars {
         if(carName.length() > 5) {
             throw new IllegalArgumentException("[ERROR]차량 이름은 5자 이하만 가능합니다");
         }
+    }
+
+    public void race(){
+        for(Car car : cars)
+            car.drive();
+    }
+
+    public List<Car> getCars() {
+        return this.cars;
     }
 }

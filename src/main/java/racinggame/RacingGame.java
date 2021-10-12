@@ -1,6 +1,8 @@
 package racinggame;
 
 import nextstep.utils.Console;
+import racinggame.controller.CarRacingController;
+import racinggame.controller.MsgCarRacingController;
 import racinggame.controller.MsgInputCarsController;
 import racinggame.controller.MsgInputTryCountController;
 import racinggame.model.RacingCars;
@@ -14,6 +16,7 @@ public class RacingGame {
     public void play(){
         stepRacingCars();
         stepTryCount();
+        stepCarRacing();
     }
 
     private void stepRacingCars() {
@@ -24,6 +27,11 @@ public class RacingGame {
     private void stepTryCount() {
         printMsgTryCount();
         inputTryCount();
+    }
+
+    private void stepCarRacing() {
+        printMsgCarRacing();
+        carRacing();
     }
 
     private void inputTryCount() {
@@ -44,6 +52,18 @@ public class RacingGame {
                 System.out.println(e.getMessage());
             }
         } while (racingCars == null);
+    }
+
+    private void carRacing() {
+        int count = 0;
+        CarRacingController carRacingController = new CarRacingController();
+        do {
+            carRacingController.handle(racingCars).output();
+        } while (++count < tryCount.getTryCount());
+    }
+
+    private void printMsgCarRacing() {
+        new MsgCarRacingController().handle().output();
     }
 
     private void printMsgInputCars(){
